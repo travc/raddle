@@ -1,0 +1,7 @@
+initseed 602566606
+f 0.100000
+vxlow 0.007500
+vxhigh 0.012500
+delvx 0.000313
+maxcase 1
+end

@@ -1,0 +1,77 @@
+#include "RaddleMCMC.h"
+#include "RaddleBase.h"
+
+
+void ReadCommandLine(int argc,char **argv, struct BaseInfo* B){
+  int i;
+  void usage();
+
+  i=1;
+  while(i<argc){
+    switch(argv[i][1]){
+    case 'S':
+      i++;
+      B->seed1=(long)atoi(argv[i]);
+      B->seed2=(long)atoi(argv[i+1]);
+      i++;
+      break;
+    case 'd':
+      i++;
+      B->Dim=atoi(argv[i]);
+      break;
+    case 'n':
+      i++;
+      B->nLoci=atoi(argv[i]);
+      break;
+    case 'B':
+      i++;
+      B->BurnIn=atoi(argv[i]);
+      break;
+    case 'I':
+      i++;
+      B->ChainSampleInterval=atoi(argv[i]);
+      break;
+    case 'M':
+      i++;
+      B->MaxReps=atoi(argv[i]);
+      break;    
+    case 'f':
+      i++;
+      sprintf(B->InFileName,argv[i]);
+      break;
+    case 'o':
+      i++;
+      sprintf(B->FileNameBase,argv[i]);
+      break;
+
+    default:
+      usage();
+      break;
+    }
+    i++;
+  }
+
+  setall(B->seed1,B->seed2);  
+  
+}
+
+
+
+
+
+
+void usage(){
+
+  fprintf(stderr,"planeMCMC <options>\n");
+  fprintf(stderr,"\t-S <integer> <integer>\t\tRandom number seeds\n");
+  fprintf(stderr,"\t-d <integer> \t\tDimensionality of habitat\n");
+  fprintf(stderr,"\t-n <integer> \t\tNumber of loci\n");
+  fprintf(stderr,"\t-B <integer> \t\tBurn-In iterations\n");
+  fprintf(stderr,"\t-I <integer> \t\tChain sampling interval\n");
+  fprintf(stderr,"\t-M <integer> \t\tMax Number of iterations\n");
+  fprintf(stderr,"\t-f <filename> \t\tInput filename\n");
+  fprintf(stderr,"\t-o <filename> \t\tOutput filenamebase\n");
+  exit(0);
+}
+
+
