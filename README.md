@@ -10,30 +10,36 @@ The software here is called RADDLE, which is
 a reddish color, but also b/c it works with the acronym: Rare Allele
 Distance of DispersaL Estimation.
 
-To install:
+## To install:
 
-1) Make sure you have gsl installed.  On a redhat system you might check by
-using "rpm -q gsl".  If it's not installed, you will have to install it.  If you
-have apt set up, the command would be "apt-get install gsl".  On OS X, similar
-commands work with the port package installer ("sudo port install gsl")
+1. Make sure you have `gsl` installed.  
+On a redhat system you might check by using "rpm -q gsl".  If it's not installed, you will have to install it.  
+If you have apt set up (ubuntu, ect), the command would be "apt-get install libgsl0ldbl".  
+On OS X, similar commands work with the port package installer ("sudo port install gsl")
 
-2) Run the following commands:
-
+2. Run the following commands:
+```
 cd src
 make RaddleMC
-cd ~/bin/
+```
 
 For help:
-./RaddleMC
+```
+bin/RaddleMC
+```
+
+## Example:
 
 Here's an example usage that calculates only the MLE for each locus based on the
-input file Example_vx200_vx100_n9_L20.xy with 10,000 importance sampling
+input file `Example_vx200_vx100_n9_L20.xy` with 10,000 importance sampling
 replicates a driving value of 100 and a heat parameter of 2.  It also outputs a
 two-dimensional likelihood surface from 80 to 250 with 5 grid-points in each
 dimension:
 
-./RaddleMC -S 10 20 -d 2 -n 3 -M 10000 -f ../example/Example_vx200_vx100_n9_L20
--v 100 -H 2 -s 80 250 5 1 -P
+```
+cd example/
+../bin/RaddleMC -S 10 20 -d 2 -n 3 -M 10000 -f Example_vx200_vx100_n9_L20 -v 100 -H 2 -s 80 250 5 1 -P
+```
 
 Note that the .xy needs to be dropped when the filename is passed to
 the program (possibly annoying I know...).  Also, the file has 20
