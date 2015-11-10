@@ -1,9 +1,9 @@
 This repository contains programs associated with the following publication:
 
-  Likelihood-based inference in isolation-by-distance models using the spatial distribution of low-frequency alleles.  
-  Novembre J, Slatkin M (2009)  
-  Evolution: International Journal of Organic Evolution 63(11):2914-25
-  [PMID:19624728](http://www.ncbi.nlm.nih.gov/pubmed/19624728)
+> Likelihood-based inference in isolation-by-distance models using the spatial distribution of low-frequency alleles.  
+> Novembre J, Slatkin M (2009)  
+> Evolution: International Journal of Organic Evolution 63(11):2914-25
+> [PMID:19624728](http://www.ncbi.nlm.nih.gov/pubmed/19624728)
 
 The software here is called RADDLE, which is
 a reddish color, but also b/c it works with the acronym: Rare Allele
