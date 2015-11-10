@@ -29,9 +29,9 @@ float genbet(float aa,float bb)
                x^(a-1) * (1-x)^(b-1) / B(a,b) for 0 < x < 1
                               Arguments
      aa --> First parameter of the beta distribution
-       
+
      bb --> Second parameter of the beta distribution
-       
+
                               Method
      R. C. H. Cheng
      Generating Beta Variatew with Nonintegral Shape Parameters
@@ -192,7 +192,7 @@ float genchi(float df)
                               Arguments
      df --> Degrees of freedom of the chisquare
             (Must be positive)
-       
+
                               Method
      Uses relation between chisquare and gamma.
 **********************************************************************
@@ -368,7 +368,7 @@ static float ae;
 void genmul(long n,float *p,long ncat,long *ix)
 /*
 **********************************************************************
- 
+
      void genmul(int n,float *p,int ncat,int *ix)
      GENerate an observation from the MULtinomial distribution
                               Arguments
@@ -384,12 +384,12 @@ void genmul(long n,float *p,long ncat,long *ix)
             will be nonnegative and their sum will be N.
                               Method
      Algorithm from page 559 of
- 
+
      Devroye, Luc
- 
+
      Non-Uniform Random Variate Generation.  Springer-Verlag,
      New York, 1986.
- 
+
 **********************************************************************
 */
 {
@@ -898,7 +898,7 @@ S170:
 long ignnbn(long n,float p)
 /*
 **********************************************************************
- 
+
      long ignnbn(long n,float p)
                 GENerate Negative BiNomial random deviate
                               Function
@@ -910,9 +910,9 @@ long ignnbn(long n,float p)
      P  --> The probability of an event.
                               Method
      Algorithm from page 480 of
- 
+
      Devroye, Luc
- 
+
      Non-Uniform Random Variate Generation.  Springer-Verlag,
      New York, 1986.
 **********************************************************************
@@ -965,23 +965,23 @@ long ignpoi(float mu)
                (June 1982),163-179
 **********************************************************************
 **********************************************************************
-                                                                      
-                                                                      
-     P O I S S O N  DISTRIBUTION                                      
-                                                                      
-                                                                      
+
+
+     P O I S S O N  DISTRIBUTION
+
+
 **********************************************************************
 **********************************************************************
-                                                                      
-     FOR DETAILS SEE:                                                 
-                                                                      
-               AHRENS, J.H. AND DIETER, U.                            
-               COMPUTER GENERATION OF POISSON DEVIATES                
-               FROM MODIFIED NORMAL DISTRIBUTIONS.                    
-               ACM TRANS. MATH. SOFTWARE, 8,2 (JUNE 1982), 163 - 179. 
-                                                                      
-     (SLIGHTLY MODIFIED VERSION OF THE PROGRAM IN THE ABOVE ARTICLE)  
-                                                                      
+
+     FOR DETAILS SEE:
+
+               AHRENS, J.H. AND DIETER, U.
+               COMPUTER GENERATION OF POISSON DEVIATES
+               FROM MODIFIED NORMAL DISTRIBUTIONS.
+               ACM TRANS. MATH. SOFTWARE, 8,2 (JUNE 1982), 163 - 179.
+
+     (SLIGHTLY MODIFIED VERSION OF THE PROGRAM IN THE ABOVE ARTICLE)
+
 **********************************************************************
       INTEGER FUNCTION IGNPOI(IR,MU)
      INPUT:  IR=CURRENT STATE OF BASIC RANDOM NUMBER GENERATOR
@@ -1237,8 +1237,8 @@ S50:
 #undef err2
 }
 long lennob( char *str )
-/* 
-Returns the length of str ignoring trailing blanks but not 
+/*
+Returns the length of str ignoring trailing blanks but not
 other white space.
 */
 {
@@ -1354,11 +1354,11 @@ void phrtsd(char* phrase,long *seed1,long *seed2)
      random number generator.
                               Arguments
      phrase --> Phrase to be used for random number generation
-      
+
      seed1 <-- First seed for generator
-                        
+
      seed2 <-- Second seed for generator
-                        
+
                               Note
 
      Trailing blanks are eliminated before the seeds are generated.
@@ -1385,10 +1385,10 @@ extern long lennob(char *str);
 
     *seed1 = 1234567890L;
     *seed2 = 123456789L;
-    lphr = lennob(phrase); 
+    lphr = lennob(phrase);
     if(lphr < 1) return;
     for(i=0; i<=(lphr-1); i++) {
-	for (ix=0; table[ix]; ix++) if (*(phrase+i) == table[ix]) break; 
+	for (ix=0; table[ix]; ix++) if (*(phrase+i) == table[ix]) break;
         if (!table[ix]) ix = 0;
         ichr = ix % 64;
         if(ichr == 0) ichr = 63;
@@ -1430,7 +1430,7 @@ static float ranf;
 		do {
    		ranf = ignlgi()*4.656613057E-10;
    	} while ( ranf == 1.0 || ranf == 0.0);
-   	
+
     return ranf;
 }
 void setgmn(float *meanv,float *covm,long p,float *parm)
@@ -1458,9 +1458,10 @@ void setgmn(float *meanv,float *covm,long p,float *parm)
 */
 {
 extern void spofa(float *a,long lda,long n,long *info);
-static long T1;
 static long i,icount,info,j,D2,D3,D4,D5;
-    T1 = p*(p+3)/2+1;
+//static long T1;
+//    T1 = p*(p+3)/2+1;
+
 /*
      TEST THE INPUT
 */
@@ -1501,27 +1502,27 @@ S30:
 float sexpo(void)
 /*
 **********************************************************************
-                                                                      
-                                                                      
-     (STANDARD-)  E X P O N E N T I A L   DISTRIBUTION                
-                                                                      
-                                                                      
+
+
+     (STANDARD-)  E X P O N E N T I A L   DISTRIBUTION
+
+
 **********************************************************************
 **********************************************************************
-                                                                      
-     FOR DETAILS SEE:                                                 
-                                                                      
-               AHRENS, J.H. AND DIETER, U.                            
-               COMPUTER METHODS FOR SAMPLING FROM THE                 
-               EXPONENTIAL AND NORMAL DISTRIBUTIONS.                  
-               COMM. ACM, 15,10 (OCT. 1972), 873 - 882.               
-                                                                      
-     ALL STATEMENT NUMBERS CORRESPOND TO THE STEPS OF ALGORITHM       
-     'SA' IN THE ABOVE PAPER (SLIGHTLY MODIFIED IMPLEMENTATION)       
-                                                                      
-     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of   
-     SUNIF.  The argument IR thus goes away.                          
-                                                                      
+
+     FOR DETAILS SEE:
+
+               AHRENS, J.H. AND DIETER, U.
+               COMPUTER METHODS FOR SAMPLING FROM THE
+               EXPONENTIAL AND NORMAL DISTRIBUTIONS.
+               COMM. ACM, 15,10 (OCT. 1972), 873 - 882.
+
+     ALL STATEMENT NUMBERS CORRESPOND TO THE STEPS OF ALGORITHM
+     'SA' IN THE ABOVE PAPER (SLIGHTLY MODIFIED IMPLEMENTATION)
+
+     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of
+     SUNIF.  The argument IR thus goes away.
+
 **********************************************************************
      Q(N) = SUM(ALOG(2.0)**K/K!)    K=1,..,N ,      THE HIGHEST N
      (HERE 8) IS DETERMINED BY Q(N)=1.0 WITHIN STANDARD PRECISION
@@ -1560,46 +1561,46 @@ S70:
 float sgamma(float a)
 /*
 **********************************************************************
-                                                                      
-                                                                      
-     (STANDARD-)  G A M M A  DISTRIBUTION                             
-                                                                      
-                                                                      
+
+
+     (STANDARD-)  G A M M A  DISTRIBUTION
+
+
 **********************************************************************
 **********************************************************************
-                                                                      
-               PARAMETER  A >= 1.0  !                                 
-                                                                      
+
+               PARAMETER  A >= 1.0  !
+
 **********************************************************************
-                                                                      
-     FOR DETAILS SEE:                                                 
-                                                                      
-               AHRENS, J.H. AND DIETER, U.                            
-               GENERATING GAMMA VARIATES BY A                         
-               MODIFIED REJECTION TECHNIQUE.                          
-               COMM. ACM, 25,1 (JAN. 1982), 47 - 54.                  
-                                                                      
-     STEP NUMBERS CORRESPOND TO ALGORITHM 'GD' IN THE ABOVE PAPER     
-                                 (STRAIGHTFORWARD IMPLEMENTATION)     
-                                                                      
-     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of   
-     SUNIF.  The argument IR thus goes away.                          
-                                                                      
+
+     FOR DETAILS SEE:
+
+               AHRENS, J.H. AND DIETER, U.
+               GENERATING GAMMA VARIATES BY A
+               MODIFIED REJECTION TECHNIQUE.
+               COMM. ACM, 25,1 (JAN. 1982), 47 - 54.
+
+     STEP NUMBERS CORRESPOND TO ALGORITHM 'GD' IN THE ABOVE PAPER
+                                 (STRAIGHTFORWARD IMPLEMENTATION)
+
+     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of
+     SUNIF.  The argument IR thus goes away.
+
 **********************************************************************
-                                                                      
-               PARAMETER  0.0 < A < 1.0  !                            
-                                                                      
+
+               PARAMETER  0.0 < A < 1.0  !
+
 **********************************************************************
-                                                                      
-     FOR DETAILS SEE:                                                 
-                                                                      
-               AHRENS, J.H. AND DIETER, U.                            
-               COMPUTER METHODS FOR SAMPLING FROM GAMMA,              
-               BETA, POISSON AND BINOMIAL DISTRIBUTIONS.              
-               COMPUTING, 12 (1974), 223 - 246.                       
-                                                                      
-     (ADAPTED IMPLEMENTATION OF ALGORITHM 'GS' IN THE ABOVE PAPER)    
-                                                                      
+
+     FOR DETAILS SEE:
+
+               AHRENS, J.H. AND DIETER, U.
+               COMPUTER METHODS FOR SAMPLING FROM GAMMA,
+               BETA, POISSON AND BINOMIAL DISTRIBUTIONS.
+               COMPUTING, 12 (1974), 223 - 246.
+
+     (ADAPTED IMPLEMENTATION OF ALGORITHM 'GS' IN THE ABOVE PAPER)
+
 **********************************************************************
      INPUT: A =PARAMETER (MEAN) OF THE STANDARD GAMMA DISTRIBUTION
      OUTPUT: SGAMMA = SAMPLE FROM THE GAMMA-(A)-DISTRIBUTION
@@ -1774,27 +1775,27 @@ S140:
 float snorm(void)
 /*
 **********************************************************************
-                                                                      
-                                                                      
-     (STANDARD-)  N O R M A L  DISTRIBUTION                           
-                                                                      
-                                                                      
+
+
+     (STANDARD-)  N O R M A L  DISTRIBUTION
+
+
 **********************************************************************
 **********************************************************************
-                                                                      
-     FOR DETAILS SEE:                                                 
-                                                                      
-               AHRENS, J.H. AND DIETER, U.                            
-               EXTENSIONS OF FORSYTHE'S METHOD FOR RANDOM             
-               SAMPLING FROM THE NORMAL DISTRIBUTION.                 
-               MATH. COMPUT., 27,124 (OCT. 1973), 927 - 937.          
-                                                                      
-     ALL STATEMENT NUMBERS CORRESPOND TO THE STEPS OF ALGORITHM 'FL'  
-     (M=5) IN THE ABOVE PAPER     (SLIGHTLY MODIFIED IMPLEMENTATION)  
-                                                                      
-     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of   
-     SUNIF.  The argument IR thus goes away.                          
-                                                                      
+
+     FOR DETAILS SEE:
+
+               AHRENS, J.H. AND DIETER, U.
+               EXTENSIONS OF FORSYTHE'S METHOD FOR RANDOM
+               SAMPLING FROM THE NORMAL DISTRIBUTION.
+               MATH. COMPUT., 27,124 (OCT. 1973), 927 - 937.
+
+     ALL STATEMENT NUMBERS CORRESPOND TO THE STEPS OF ALGORITHM 'FL'
+     (M=5) IN THE ABOVE PAPER     (SLIGHTLY MODIFIED IMPLEMENTATION)
+
+     Modified by Barry W. Brown, Feb 3, 1988 to use RANF instead of
+     SUNIF.  The argument IR thus goes away.
+
 **********************************************************************
      THE DEFINITIONS OF THE CONSTANTS A(K), D(K), T(K) AND
      H(K) ARE ACCORDING TO THE ABOVEMENTIONED ARTICLE
