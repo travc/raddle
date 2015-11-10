@@ -38,8 +38,7 @@ dimension:
 
 ```
 cd example/
-../bin/RaddleMC -S 10 20 -d 2 -n 3 -M 10000 -f Example_vx200_vx100_n9_L20
--v 100 -H 2 -s 80 250 5 1 -P
+../bin/RaddleMC -S 10 20 -d 2 -n 3 -M 10000 -f Example_vx200_vx100_n9_L20 -v 100 -H 2 -s 80 250 5 1 -P
 ```
 
 Note that the .xy needs to be dropped when the filename is passed to
