@@ -10,18 +10,19 @@ The software here is called RADDLE, which is
 a reddish color, but also b/c it works with the acronym: Rare Allele
 Distance of DispersaL Estimation.
 
-To install:
+## To install: ##
 
-1) Make sure you have gsl installed.  On a redhat system you might check by
-using "rpm -q gsl".  If it's not installed, you will have to install it.  If you
-have apt set up, the command would be "apt-get install gsl".  On OS X, similar
-commands work with the port package installer ("sudo port install gsl")
+1. Make sure you have gsl installed.  
+On a redhat system you might check by using "rpm -q gsl".  If it's not installed, you will have to install it.  
+If you have apt set up (ubuntu, ect), the command would be "apt-get install libgsl0ldbl".  
+On OS X, similar commands work with the port package installer ("sudo port install gsl")
 
-2) Run the following commands:
-
+2. Run the following commands:
+```
 cd src
 make RaddleMC
 cd ~/bin/
+```
 
 For help:
 ./RaddleMC
